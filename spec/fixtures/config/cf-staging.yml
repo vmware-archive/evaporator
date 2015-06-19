@@ -1,0 +1,13 @@
+---
+buildpack: https://github.com/cloudfoundry/ruby-buildpack#v1.4.2
+applications:
+- name: cool-project-staging
+  command: bundle exec rake db:migrate && bundle exec unicorn -p $PORT -c ./config/unicorn.rb
+  services:
+    - cool-project-staging
+
+- name: cool-project-staging-clock
+  command: bundle exec clockwork lib/clock.rb
+  no-route: true
+  services:
+    - cool-project-staging
