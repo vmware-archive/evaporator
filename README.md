@@ -1,8 +1,6 @@
 # Evaporator
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/evaporator`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+<insert funny image>
 
 ## Installation
 
@@ -22,7 +20,18 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Assumptions
+Evaporator assumes that your app has two instances: staging and production. It assumes
+that the manifest for the staging version of the app is located at `config/cf-staging.yml` and
+assumes that the production version of the app has a manifest located at `config/cf-production.yml`.
+
+### Deploy to Staging
+
+    $ rake SPACE=yourspace cf:deploy:staging
+
+### Deploy to Production
+
+    $ rake SPACE=yourspace cf:deploy:production
 
 ## Development
 
@@ -32,10 +41,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/evaporator.
+Bug reports and pull requests are welcome on GitHub at https://github.com/pivotal/evaporator.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
