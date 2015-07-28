@@ -32,7 +32,7 @@ describe Evaporator::Deployer do
         it 'deploys an app' do
           allow_any_instance_of(Kernel).to receive(:`).with('git status --porcelain').and_return('')
 
-          expect_any_instance_of(Kernel).to receive(:system).with('cf target -s \'FancyApp\'')
+          expect_any_instance_of(Kernel).to receive(:system).with('cf target -s FancyApp')
           expect_any_instance_of(Kernel).to receive(:system).with('cf set-env cool-project-staging GIT_SHA 56a688519737d832cd7805647117a830f7db11e8')
           expect_any_instance_of(Kernel).to receive(:system).with('cf set-env cool-project-staging-clock GIT_SHA 56a688519737d832cd7805647117a830f7db11e8')
           expect_any_instance_of(Kernel).to receive(:system).with('cf push -f config/cf-staging.yml')
