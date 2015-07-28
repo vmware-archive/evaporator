@@ -36,7 +36,7 @@ module Evaporator
 
     def set_space
       raise 'You must specify a space: rake SPACE=name cf:deploy:staging' if ENV['SPACE'].nil?
-      system("cf target -s #{ENV['SPACE']}")
+      system("cf target -s '#{ENV['SPACE']}'")
     end
 
     def check_clean_git
